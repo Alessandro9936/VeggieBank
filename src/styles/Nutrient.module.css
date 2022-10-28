@@ -1,0 +1,18 @@
+.recipe-nutrients {
+  flex: 1;
+  box-shadow: 0 0 3px rgb(0, 0, 0, 0.2);
+}
+
+.nutrient {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nutrient-name {
+  font-weight: bold;
+}
+
+.quantity {
+  font-weight: bold;
+  color: var(--strong-green);
+}

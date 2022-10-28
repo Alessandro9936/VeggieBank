@@ -1,0 +1,7 @@
+.board__content {
+  height: 100%;
+  background-color: white;
+  flex: 1;
+  padding: var(--size24);
+  border-top-left-radius: var(--border20);
+}

@@ -1,0 +1,31 @@
+.step {
+  display: flex;
+  gap: var(--size16);
+}
+
+.step:not(:last-of-type) {
+  border-bottom: 1px solid gray;
+}
+
+.step p:not(.step:last-child) {
+  margin-bottom: var(--size24);
+}
+
+.step-number {
+  position: relative;
+  background-color: var(--strong-green);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  flex-shrink: 0;
+}
+
+.step-number p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 1.6rem;
+  font-weight: bold;
+}

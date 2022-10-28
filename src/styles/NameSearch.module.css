@@ -1,0 +1,21 @@
+.search-section {
+  margin-top: -35px;
+}
+
+.search-section input {
+  cursor: pointer;
+
+  width: 100%;
+
+  padding: var(--size08);
+  border: none;
+  border-radius: var(--border5);
+
+  background-color: var(--input-bg);
+
+  font: inherit;
+}
+
+.search-section input:focus-visible {
+  outline: 1px solid var(--strong-green);
+}

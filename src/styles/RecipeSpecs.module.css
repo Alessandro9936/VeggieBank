@@ -1,0 +1,24 @@
+.ingredient {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--size16);
+}
+
+.ingredient-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 1px solid rgb(239, 239, 239);
+  overflow: hidden;
+}
+
+.ingredient-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}

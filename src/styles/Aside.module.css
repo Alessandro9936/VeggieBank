@@ -1,0 +1,46 @@
+.board__aside-open {
+  position: relative;
+  background-color: white;
+
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size32);
+
+  padding: var(--size24);
+
+  border-top-right-radius: var(--border20);
+}
+
+.board__aside-close {
+  position: relative;
+  background-color: white;
+
+  flex-basis: 0%;
+
+  padding: var(--size16);
+
+  border-top-right-radius: var(--border20);
+}
+
+.board__aside-open h2 {
+  margin-bottom: var(--size08);
+}
+
+.sidebar-handler {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  transform: translate(-50%, 50%);
+}
+
+.sidebar-text {
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+
+  transform: rotate(180deg);
+
+  font-weight: bold;
+  font-size: 1.6rem;
+}

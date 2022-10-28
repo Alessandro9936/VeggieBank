@@ -1,0 +1,10 @@
+.active-filter p {
+  font-weight: bold;
+  margin-bottom: var(--size04);
+}
+
+.active-filter__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size08);
+}

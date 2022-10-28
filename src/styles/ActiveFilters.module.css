@@ -1,0 +1,10 @@
+.active-filters-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size08);
+}
