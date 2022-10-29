@@ -5,21 +5,23 @@ import React from "react";
 import classes from "../../styles/Filter.module.css";
 import { ChevronDown } from "react-feather";
 
-export function Filter({ type, typeList }) {
+export function Filter({ type, typeList, isActive, onShow }) {
   return (
-    <ul className={classes.filter}>
+    <ul className={classes.filter} onClick={onShow}>
       <div className={classes["filter__header"]}>
-        <span>{type || ""}</span>
+        <span>{type}</span>
         <ChevronDown
           color="#333"
           style={{ marginLeft: "auto", cursor: "pointer" }}
         />
       </div>
-      <div className={classes["options-container hidden"]}>
-        {typeList.map((option, i) => {
-          <Option value={option} key={i} />;
-        })}
-      </div>
+      {isActive && (
+        <div className={classes["options-container"]}>
+          {typeList.map((option, i) => (
+            <Option value={option} key={i} />
+          ))}
+        </div>
+      )}
     </ul>
   );
 }
