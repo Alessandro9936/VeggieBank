@@ -12,6 +12,25 @@ import { Menu } from "react-feather";
 
 export function Aside() {
   const [showAside, setShowAside] = useState(true);
+  const [activeTags, setActiveTags] = useState({
+    cuisines: [],
+    types: [],
+    intollerances: [],
+    sorters: [],
+  });
+
+  const handleUpdateActiveFilters = (filter, value) => {
+    setActiveTags((prevTags) => {
+      if (prevTags[filter].includes(value)) {
+        return {
+          ...prevTags,
+          [filter]: prevTags[filter].filter((preValue) => preValue !== value),
+        };
+      } else {
+        return { ...prevTags, [filter]: [...prevTags[filter], value] };
+      }
+    });
+  };
 
   const asideClasses = classes[`board__aside-${showAside ? "open" : "close"}`];
 
@@ -36,8 +55,8 @@ export function Aside() {
             onClick={handleShowAside}
           />
           <NameSearch />
-          <Filters />
-          <ActiveFilters />
+          <Filters updateActiveFilters={handleUpdateActiveFilters} />
+          <ActiveFilters activeFilters={activeTags} />
         </>
       )}
     </aside>

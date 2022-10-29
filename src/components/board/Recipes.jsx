@@ -10,25 +10,6 @@ export function Recipes({}) {
   return (
     <ul className={classes.recipes}>
       <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
-      <RecipePreview />
     </ul>
   );
 }

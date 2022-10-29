@@ -17,12 +17,6 @@
   justify-content: space-between;
 }
 
-/*
-  .filter__header img {
-    transform: rotate(90deg);
-  }
-  */
-
 .options-container {
   height: 10rem;
   overflow-y: scroll;
@@ -32,3 +26,9 @@
 .hidden {
   display: none;
 }
+
+/*
+  .filter__header img {
+    transform: rotate(90deg);
+  }
+  */
