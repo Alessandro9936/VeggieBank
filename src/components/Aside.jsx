@@ -13,16 +13,33 @@ import { Menu } from "react-feather";
 export function Aside() {
   const [showAside, setShowAside] = useState(true);
 
+  const asideClasses = classes[`board__aside-${showAside ? "open" : "close"}`];
+
+  const handleShowAside = () => {
+    setShowAside(!showAside);
+  };
+
   return (
-    <aside className={classes["board__aside-open"]}>
-      {/* <Menu
-        color="#333"
-        style={{ "margin-left": "auto", cursor: "pointer" }}
-  /> */}
-      <X color="#333" style={{ marginLeft: "auto", cursor: "pointer" }} />
-      <NameSearch />
-      <Filters />
-      <ActiveFilters />
+    <aside className={asideClasses}>
+      {!showAside && (
+        <Menu
+          color="#333"
+          style={{ marginLeft: "auto", cursor: "pointer" }}
+          onClick={handleShowAside}
+        />
+      )}
+      {showAside && (
+        <>
+          <X
+            color="#333"
+            style={{ marginLeft: "auto", cursor: "pointer" }}
+            onClick={handleShowAside}
+          />
+          <NameSearch />
+          <Filters />
+          <ActiveFilters />
+        </>
+      )}
     </aside>
   );
 }
