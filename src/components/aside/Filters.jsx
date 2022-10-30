@@ -20,6 +20,7 @@ export function Filters({ updateActiveFilters }) {
     updateActiveFilters(filter, value);
   };
 
+  console.log("render Filters");
   return (
     <>
       <div className={classes["filters-section"]}>

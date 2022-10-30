@@ -3,6 +3,7 @@ import { Option } from "./Option";
 
 import classes from "../../styles/Filter.module.css";
 import { ChevronDown } from "react-feather";
+import { useMemo } from "react";
 
 export function Filter({
   updateActiveFilters,
@@ -14,6 +15,17 @@ export function Filter({
   const returnTag = (filter, value) => {
     updateActiveFilters(filter, value);
   };
+
+  const tags = useMemo(() => {
+    return typeList.map((option, i) => (
+      <Option
+        value={option}
+        key={i}
+        updateActiveFilters={returnTag}
+        filter={type.toLowerCase()}
+      />
+    ));
+  }, [typeList]);
 
   return (
     <ul className={classes.filter}>
@@ -30,14 +42,7 @@ export function Filter({
           !isActive ? classes.hidden : ""
         }`}
       >
-        {typeList.map((option, i) => (
-          <Option
-            value={option}
-            key={i}
-            updateActiveFilters={returnTag}
-            filter={type.toLowerCase()}
-          />
-        ))}
+        {tags}
       </div>
     </ul>
   );
