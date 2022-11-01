@@ -20,6 +20,8 @@ export function Aside() {
     sort: [],
   });
 
+  ulrHandler(activeTags);
+
   const handleUpdateActiveFilters = (filter, value) => {
     setActiveTags((prevTags) => {
       if (prevTags[filter].includes(value)) {
