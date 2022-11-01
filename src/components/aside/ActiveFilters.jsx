@@ -11,13 +11,13 @@ export function ActiveFilters({ activeFilters }) {
     <div className={classes["active-filters-section"]}>
       <h2>Active filters:</h2>
       <div className={classes["sort-options"]}>
-        <ActiveFilter type="Cuisine" activeFilters={activeFilters.cuisines} />
-        <ActiveFilter type="Type" activeFilters={activeFilters.types} />
+        <ActiveFilter type="Cuisine" activeFilters={activeFilters.cuisine} />
+        <ActiveFilter type="Type" activeFilters={activeFilters.type} />
         <ActiveFilter
           type="Intollerances"
-          activeFilters={activeFilters.intollerances}
+          activeFilters={activeFilters.intolerances}
         />
-        <ActiveFilter type="Sorters" activeFilters={activeFilters.sorters} />
+        <ActiveFilter type="Sorters" activeFilters={activeFilters.sort} />
       </div>
     </div>
   );

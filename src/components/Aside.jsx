@@ -1,6 +1,7 @@
 import { ActiveFilters } from "./aside/ActiveFilters";
 import { Filters } from "./aside/Filters";
 import { NameSearch } from "./aside/NameSearch";
+import { ulrHandler } from "../utils/url-handler";
 
 import React from "react";
 import { useState } from "react";
@@ -13,10 +14,10 @@ import { Menu } from "react-feather";
 export function Aside() {
   const [showAside, setShowAside] = useState(true);
   const [activeTags, setActiveTags] = useState({
-    cuisines: [],
-    types: [],
-    intollerances: [],
-    sorters: [],
+    cuisine: [],
+    type: [],
+    intolerances: [],
+    sort: [],
   });
 
   const handleUpdateActiveFilters = (filter, value) => {
