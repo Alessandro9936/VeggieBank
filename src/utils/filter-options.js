@@ -1,4 +1,4 @@
-const cuisines = [
+const cuisine = [
   "African",
   "American",
   "British",
@@ -27,7 +27,7 @@ const cuisines = [
   "Vietnamese",
 ];
 
-const mealTypes = [
+const type = [
   "main course",
   "side dish",
   "dessert",
@@ -44,7 +44,7 @@ const mealTypes = [
   "drink",
 ];
 
-const intollerances = [
+const intolerances = [
   "Dairy",
   "Egg",
   "Gluten",
@@ -59,6 +59,6 @@ const intollerances = [
   "Wheat",
 ];
 
-const sortingOptions = ["popularity", "healthiness", "price", "calories"];
+const sort = ["popularity", "healthiness", "price", "calories"];
 
-export { sortingOptions, intollerances, mealTypes, cuisines };
+export { sort, intolerances, type, cuisine };
