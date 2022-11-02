@@ -1,14 +1,14 @@
 .step {
   display: flex;
   gap: var(--size16);
+  padding-block: var(--size16);
+}
+.step:first-of-type {
+  padding-top: var(--size24);
 }
 
 .step:not(:last-of-type) {
   border-bottom: 1px solid gray;
-}
-
-.step p:not(.step:last-child) {
-  margin-bottom: var(--size24);
 }
 
 .step-number {
@@ -28,4 +28,6 @@
 
   font-size: 1.6rem;
   font-weight: bold;
+
+  color: white;
 }

@@ -1,0 +1,21 @@
+.recipe-nutrients {
+  flex: 1;
+  padding: var(--size16);
+  padding-bottom: var(--size24);
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size16);
+
+  border-radius: var(--border10);
+
+  box-shadow: 0 0 3px rgb(0, 0, 0, 0.2);
+}
+
+.recipe-nutrients h2::after {
+  content: "(Per serving)";
+  margin-left: var(--size08);
+  font-weight: normal;
+  font-size: 0.8rem;
+}

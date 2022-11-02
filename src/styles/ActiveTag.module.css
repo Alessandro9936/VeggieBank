@@ -1,8 +1,18 @@
 .active-tag {
+  cursor: pointer;
   border: 2px solid var(--strong-green);
   border-radius: var(--border10);
   padding: var(--size04) var(--size08);
   font-size: 0.8rem;
   font-weight: bold;
   color: var(--strong-green);
+}
+.disabled-tag {
+  cursor: pointer;
+  border: 2px solid rgb(254, 97, 97);
+  border-radius: var(--border10);
+  padding: var(--size04) var(--size08);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(254, 97, 97);
 }

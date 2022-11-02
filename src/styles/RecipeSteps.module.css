@@ -1,0 +1,8 @@
+.unavailble-description {
+  padding-top: var(--size24);
+}
+
+.unavailble-description a {
+  color: var(--strong-green);
+  font-weight: bold;
+}

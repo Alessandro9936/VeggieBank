@@ -22,3 +22,7 @@
   display: block;
   object-fit: cover;
 }
+
+.ingredient-specs p:first-of-type {
+  margin-bottom: var(--space04);
+}
