@@ -11,7 +11,7 @@ export function ActiveFilter({ type, activeFilters }) {
       <p>{type}:</p>
       <div className={classes["active-filter__buttons"]}>
         {activeFilters.map((activeFilter, i) => {
-          return <ActiveTag value={activeFilter} key={i} />;
+          return <ActiveTag filter={activeFilter} key={i} />;
         })}
       </div>
     </div>
