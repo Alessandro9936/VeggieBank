@@ -8,8 +8,19 @@ import ActiveTag from "../UI/ActiveTag";
 
 import { X, ChevronLeft, ChevronRight } from "react-feather";
 import classes from "../../styles/RecipeDetail.module.css";
+import { useParams } from "react-router-dom";
 
 export function RecipeDetail() {
+  const { id } = useParams();
+
+  const recipeDetails = fetch(
+    `http://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${
+      import.meta.env.VITE_KEY_3
+    }`
+  )
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+
   return (
     <div className={classes["recipe-detail"]}>
       <div className={classes["recipe-block-flex"]}>
