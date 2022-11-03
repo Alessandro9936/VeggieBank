@@ -8,23 +8,38 @@ import classes from "../../styles/RecipeDetail.module.css";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { RecipePreview } from "./RecipePreview";
 
 const getRecipe = async (id) => {
   const result = await fetch(
     `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${
-      import.meta.env.VITE_KEY_1
+      import.meta.env.VITE_KEY_3
     }`
   );
   const data = await result.json();
   return data;
 };
 
+const simRecipes = async (id) => {
+  const result = await fetch(
+    `https://api.spoonacular.com/recipes/${id}/similar?number=3&apiKey=${
+      import.meta.env.VITE_KEY_3
+    }`
+  );
+  const data = result.json();
+  return data;
+};
+
 export function RecipeDetail() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const [similarRecipes, setSimilarRecipes] = useState(null);
 
   useEffect(() => {
-    getRecipe(id).then((data) => setRecipe(data));
+    Promise.all([getRecipe(id), simRecipes(id)]).then((data) => {
+      setRecipe(data[0]);
+      setSimilarRecipes(data[1]);
+    });
   }, [id]);
 
   const [servings, setServings] = useState(1);
@@ -55,14 +70,11 @@ export function RecipeDetail() {
 
           <div className={classes.recommended}>
             <h2>You may also like:</h2>
-            <div className={classes["reccommended-recipes"]}>
-              {/* FIND RECOMMENDED RECIPES AND MAP THEM
-          <RecipePreview />
-          <RecipePreview />
-          <RecipePreview />
-          
-          */}
-            </div>
+            <ul className={classes["reccommended-recipes"]}>
+              {similarRecipes.map((recipe, i) => (
+                <RecipePreview recipe={recipe} key={i} />
+              ))}
+            </ul>
           </div>
         </div>
       )}
