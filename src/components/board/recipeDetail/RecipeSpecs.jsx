@@ -1,8 +1,13 @@
 import React from "react";
+import Fraction from "fraction.js";
 
 import classes from "../../../styles/RecipeSpecs.module.css";
 
 export function RecipeSpecs(props) {
+  const formatAmount = Math.round(props.amount)
+    ? `${Math.round(props.amount)} ${props.unit}`
+    : "Some";
+
   return (
     <div className={classes.ingredient}>
       <div className={classes["ingredient-image"]}>
@@ -12,9 +17,7 @@ export function RecipeSpecs(props) {
         />
       </div>
       <div className={classes["ingredient-specs"]}>
-        <p>
-          {props.amount} {props.unit}
-        </p>
+        <p>{formatAmount}</p>
         <p>{props.name[0].toUpperCase() + props.name.slice(1)}</p>
       </div>
     </div>
