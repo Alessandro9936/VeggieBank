@@ -1,5 +1,4 @@
 import React from "react";
-import Fraction from "fraction.js";
 
 import classes from "../../../styles/RecipeSpecs.module.css";
 
