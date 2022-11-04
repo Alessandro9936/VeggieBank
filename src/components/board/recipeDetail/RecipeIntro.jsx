@@ -40,8 +40,8 @@ export function RecipeIntro({ recipe }) {
         </p>
         <div className={classes.tags}>
           <p>Tags:</p>
-          {Object.entries(recipeTags).map(([key, value], i) => (
-            <ActiveTag filter={key} value={value} key={i} />
+          {Object.entries(recipeTags).map(([key, value]) => (
+            <ActiveTag filter={key} value={value} key={key} />
           ))}
         </div>
       </div>

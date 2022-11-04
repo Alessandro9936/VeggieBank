@@ -2,15 +2,13 @@ import React from "react";
 
 import { RecipeSpecs } from "./RecipeSpecs";
 import { ChevronLeft, ChevronRight } from "react-feather";
+import { useState } from "react";
 
 import classes from "../../../styles/RecipeIngredients.module.css";
 
-export function RecipeIngredients({
-  baseServings,
-  servings,
-  ingredients,
-  setServings,
-}) {
+export function RecipeIngredients({ baseServings, ingredients }) {
+  const [servings, setServings] = useState(1);
+
   return (
     <div className={classes["recipe-ingredients"]}>
       <div className={classes["ingredients-header"]}>
@@ -40,7 +38,7 @@ export function RecipeIngredients({
             name={ingredient.name}
             amount={(ingredient.amount / baseServings) * servings}
             unit={ingredient.unit}
-            key={i}
+            key={ingredient.id}
           />
         ))}
       </div>

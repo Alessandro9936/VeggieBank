@@ -6,43 +6,47 @@ import React from "react";
 
 import classes from "../../styles/RecipeDetail.module.css";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
 import { RecipePreview } from "./RecipePreview";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { Loader } from "../UI/Loader";
+import { Error } from "../UI/Error";
 
-const getRecipe = async (id) => {
-  const result = await fetch(
+const fetchRecipeDetail = ({ queryKey }) => {
+  const id = queryKey[1];
+
+  const recipeDetailRequest = axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${
-      import.meta.env.VITE_KEY_3
+      import.meta.env.VITE_KEY_5
     }`
   );
-  const data = await result.json();
-  return data;
-};
 
-const simRecipes = async (id) => {
-  const result = await fetch(
-    `https://api.spoonacular.com/recipes/${id}/similar?number=3&apiKey=${
-      import.meta.env.VITE_KEY_3
+  const similarRecipesRequest = axios.get(
+    `https://api.spoonacular.com/recipes/${id}/similar?number=10&apiKey=${
+      import.meta.env.VITE_KEY_5
     }`
   );
-  const data = result.json();
-  return data;
+
+  return axios.all([recipeDetailRequest, similarRecipesRequest]);
 };
 
 export function RecipeDetail() {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState(null);
-  const [similarRecipes, setSimilarRecipes] = useState(null);
 
-  useEffect(() => {
-    Promise.all([getRecipe(id), simRecipes(id)]).then((data) => {
-      setRecipe(data[0]);
-      setSimilarRecipes(data[1]);
-    });
-  }, [id]);
+  const { data, isLoading, isError, error } = useQuery(
+    ["recipe-detail", id],
+    fetchRecipeDetail
+  );
+  const recipe = data?.[0].data;
+  const similarRecipes = data?.[1].data;
 
-  const [servings, setServings] = useState(1);
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <Error status={error.response.status} />;
+  }
 
   return (
     <>
@@ -53,10 +57,8 @@ export function RecipeDetail() {
           </div>
           <div className={classes["recipe-block-flex"]}>
             <RecipeIngredients
-              servings={servings}
               baseServings={recipe.servings}
               ingredients={recipe.extendedIngredients}
-              setServings={setServings}
             />
             <RecipeNutrients nutrients={recipe.nutrition.nutrients} />
           </div>
@@ -68,14 +70,16 @@ export function RecipeDetail() {
             />
           </div>
 
-          <div className={classes.recommended}>
-            <h2>You may also like:</h2>
-            <ul className={classes["reccommended-recipes"]}>
-              {similarRecipes.map((recipe, i) => (
-                <RecipePreview recipe={recipe} key={i} />
-              ))}
-            </ul>
-          </div>
+          {!error && (
+            <div className={classes.recommended}>
+              <h2>You may also like:</h2>
+              <ul className={classes["reccommended-recipes"]}>
+                {similarRecipes.map((recipe) => (
+                  <RecipePreview recipe={recipe} key={recipe.id} />
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </>

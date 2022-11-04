@@ -1,0 +1,29 @@
+.error {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--text);
+
+  width: 40%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size16);
+  align-items: center;
+}
+
+.error-back {
+  width: fit-content;
+  text-decoration: none;
+  background-color: var(--strong-green);
+  color: white;
+  padding: var(--size08) var(--size16);
+
+  border-radius: var(--border10);
+}
