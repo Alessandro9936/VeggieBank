@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../../../styles/RecipeIntro.module.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { X } from "react-feather";
 
@@ -8,6 +8,7 @@ import ActiveTag from "../../UI/ActiveTag";
 
 export function RecipeIntro({ recipe }) {
   const navigate = useNavigate();
+
   const recipeTags = {
     vegetarian: recipe.vegetarian,
     vegan: recipe.vegan,
@@ -18,7 +19,7 @@ export function RecipeIntro({ recipe }) {
   };
 
   const closeRecipeDetails = () => {
-    navigate("/recipes");
+    navigate(-1);
   };
 
   return (
