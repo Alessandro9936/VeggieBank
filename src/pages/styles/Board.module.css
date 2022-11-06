@@ -3,6 +3,8 @@
 
   display: flex;
   gap: var(--size48);
+
+  background-color: var(--strong-green);
 }
 
 ::-webkit-scrollbar {
