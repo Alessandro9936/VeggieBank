@@ -3,18 +3,13 @@ import React from "react";
 
 import classes from "../../styles/Filters.module.css";
 
-import * as optionsArrays from "../../utils/filter-options";
+import { optionsPerFilter } from "../../utils/filter-options";
 import { useState } from "react";
 
-export function Filters({ updateActiveFilters }) {
+export function Filters() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const filterTypes = ["cuisine", "type", "intolerances", "sort"];
-  const options = optionsArrays;
-
-  const returnTag = (filter, value) => {
-    updateActiveFilters(filter, value);
-  };
 
   return (
     <>
@@ -23,10 +18,9 @@ export function Filters({ updateActiveFilters }) {
         <div className={classes["filter-container"]}>
           {filterTypes.map((filterType, i) => (
             <Filter
-              key={i}
-              type={filterType}
-              typeList={options[filterType]}
-              updateActiveFilters={returnTag}
+              key={filterType}
+              filterName={filterType}
+              optionList={optionsPerFilter[filterType]}
               isActive={activeIndex === i}
               onShow={() => setActiveIndex(activeIndex === i ? null : i)}
             />

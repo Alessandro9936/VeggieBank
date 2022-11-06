@@ -1,13 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useContext } from "react";
 import classes from "../../styles/Option.module.css";
+import { ActiveTagsDispatchContext } from "../context/activeTags-context";
 
-export function Option({ value, filter, updateActiveFilters }) {
-  const [isActive, setIsActive] = useState(false);
+export function Option({ value, filter, isActive }) {
+  const dispatch = useContext(ActiveTagsDispatchContext);
 
   const handleOnClick = () => {
-    setIsActive(!isActive);
-    updateActiveFilters(filter, value);
+    dispatch({ type: filter, tag: value });
   };
 
   return (

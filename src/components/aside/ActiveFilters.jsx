@@ -3,21 +3,23 @@ import { ActiveFilter } from "./ActiveFilter";
 import React from "react";
 
 import classes from "../../styles/ActiveFilters.module.css";
+import { useContext } from "react";
+import { ActiveTagsContext } from "../context/activeTags-context";
 
-export function ActiveFilters({ activeFilters }) {
-  // GET LIST OF ACTIVE FILTERS (CUISINE, TYPE, INTOLLERANCES, SORT OPTIONS), MAP THEM
+export function ActiveFilters() {
+  const activeTags = useContext(ActiveTagsContext);
 
   return (
     <div className={classes["active-filters-section"]}>
       <h2>Active filters:</h2>
       <div className={classes["sort-options"]}>
-        <ActiveFilter type="Cuisine" activeFilters={activeFilters.cuisine} />
-        <ActiveFilter type="Type" activeFilters={activeFilters.type} />
-        <ActiveFilter
-          type="Intollerances"
-          activeFilters={activeFilters.intolerances}
-        />
-        <ActiveFilter type="Sorters" activeFilters={activeFilters.sort} />
+        {Object.keys(activeTags).map((filter) => (
+          <ActiveFilter
+            type={filter}
+            activeFilters={activeTags[filter]}
+            key={filter}
+          />
+        ))}
       </div>
     </div>
   );

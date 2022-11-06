@@ -17,13 +17,13 @@ const fetchRecipeDetail = ({ queryKey }) => {
 
   const recipeDetailRequest = axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${
-      import.meta.env.VITE_KEY_5
+      import.meta.env.VITE_KEY_2
     }`
   );
 
   const similarRecipesRequest = axios.get(
     `https://api.spoonacular.com/recipes/${id}/similar?number=10&apiKey=${
-      import.meta.env.VITE_KEY_5
+      import.meta.env.VITE_KEY_2
     }`
   );
 

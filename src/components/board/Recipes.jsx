@@ -16,7 +16,7 @@ const fetchRecipes = async ({ queryKey }) => {
   return axios.get(
     `https://api.spoonacular.com/recipes/complexSearch${
       filters ? filters : "?"
-    }&diet=vegetarian&number=100&apiKey=${import.meta.env.VITE_KEY_5}`
+    }&diet=vegetarian&number=100&apiKey=${import.meta.env.VITE_KEY_2}`
   );
 };
 

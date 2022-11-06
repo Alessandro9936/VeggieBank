@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const ulrHandler = (activeTags) => {
+  console.log(activeTags);
   let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -16,8 +17,10 @@ const ulrHandler = (activeTags) => {
 
       searchUrl = {
         ...searchUrl,
-        [key]: value.join(","),
+        [key]:
+          key === "cuisine" || key === "intolerances" ? value.join(",") : value,
       };
+
       setSearchParams(searchUrl);
     }
   }, [activeTags]);

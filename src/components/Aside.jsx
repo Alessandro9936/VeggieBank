@@ -1,7 +1,6 @@
 import { ActiveFilters } from "./aside/ActiveFilters";
 import { Filters } from "./aside/Filters";
 import { NameSearch } from "./aside/NameSearch";
-import { ulrHandler } from "../utils/url-handler";
 
 import React from "react";
 import { useState } from "react";
@@ -21,27 +20,6 @@ export function Aside() {
 
   const [showAside, setShowAside] = useState(true);
   const [disableModal, setDisableModal] = useState(false);
-  const [activeTags, setActiveTags] = useState({
-    cuisine: [],
-    type: [],
-    intolerances: [],
-    sort: [],
-  });
-
-  ulrHandler(activeTags);
-
-  const handleUpdateActiveFilters = (filter, value) => {
-    setActiveTags((prevTags) => {
-      if (prevTags[filter].includes(value)) {
-        return {
-          ...prevTags,
-          [filter]: prevTags[filter].filter((preValue) => preValue !== value),
-        };
-      } else {
-        return { ...prevTags, [filter]: [...prevTags[filter], value] };
-      }
-    });
-  };
 
   const handleDisableModal = () => {
     setDisableModal(true);
@@ -82,8 +60,8 @@ export function Aside() {
             </div>
           )}
           <NameSearch />
-          <Filters updateActiveFilters={handleUpdateActiveFilters} />
-          <ActiveFilters activeFilters={activeTags} />
+          <Filters />
+          <ActiveFilters />
         </>
       )}
     </aside>

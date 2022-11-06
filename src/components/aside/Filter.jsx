@@ -4,34 +4,17 @@ import { Option } from "./Option";
 import classes from "../../styles/Filter.module.css";
 import { ChevronDown } from "react-feather";
 import { useMemo } from "react";
+import { useContext } from "react";
+import { ActiveTagsContext } from "../context/activeTags-context";
 
-export function Filter({
-  updateActiveFilters,
-  typeList,
-  type,
-  isActive,
-  onShow,
-}) {
-  const returnTag = (filter, value) => {
-    updateActiveFilters(filter, value);
-  };
-
-  const tags = useMemo(() => {
-    return typeList.map((option, i) => (
-      <Option
-        value={option}
-        key={i}
-        updateActiveFilters={returnTag}
-        filter={type}
-      />
-    ));
-  }, [typeList]);
+export function Filter({ filterName, optionList, isActive, onShow }) {
+  const activeOptions = useContext(ActiveTagsContext);
 
   return (
     <>
       <ul className={classes.filter}>
         <div className={classes["filter__header"]} onClick={onShow}>
-          <span>{type[0].toUpperCase() + type.slice(1)}</span>
+          <span>{filterName[0].toUpperCase() + filterName.slice(1)}</span>
           <ChevronDown
             color="#333"
             style={{ marginLeft: "auto", cursor: "pointer" }}
@@ -43,7 +26,14 @@ export function Filter({
             !isActive ? classes.hidden : ""
           }`}
         >
-          {tags}
+          {optionList.map((option) => (
+            <Option
+              value={option}
+              key={option}
+              filter={filterName}
+              isActive={activeOptions[filterName].includes(option)}
+            />
+          ))}
         </div>
       </ul>
     </>
