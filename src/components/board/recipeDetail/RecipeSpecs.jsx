@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "../../../styles/RecipeSpecs.module.css";
+import classes from "./styles/RecipeSpecs.module.css";
 
 export function RecipeSpecs(props) {
   const formatAmount = Math.round(props.amount)

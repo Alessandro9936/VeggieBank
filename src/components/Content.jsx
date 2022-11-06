@@ -1,7 +1,7 @@
 import { Recipes } from "./board/Recipes";
 import React from "react";
 
-import classes from "../styles/Content.module.css";
+import classes from "./styles/Content.module.css";
 
 import { Outlet, useParams } from "react-router-dom";
 

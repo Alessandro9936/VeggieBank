@@ -1,7 +1,7 @@
 import { Filter } from "./Filter";
 import React from "react";
 
-import classes from "../../styles/Filters.module.css";
+import classes from "./styles/Filters.module.css";
 
 import { optionsPerFilter } from "../../utils/filter-options";
 import { useState } from "react";

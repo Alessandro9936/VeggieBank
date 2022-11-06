@@ -1,6 +1,6 @@
 import React from "react";
 import { Nutrient } from "./Nutrient";
-import classes from "../../../styles/RecipeNutrients.module.css";
+import classes from "./styles/RecipeNutrients.module.css";
 
 export function RecipeNutrients({ nutrients }) {
   const nutrientInTable = [

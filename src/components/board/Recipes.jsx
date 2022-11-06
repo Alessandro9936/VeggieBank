@@ -2,7 +2,7 @@ import { RecipePreview } from "./RecipePreview";
 
 import React from "react";
 
-import classes from "../../styles/Recipes.module.css";
+import classes from "./styles/Recipes.module.css";
 import { useLocation } from "react-router-dom";
 
 import axios from "axios";
@@ -16,7 +16,7 @@ const fetchRecipes = async ({ queryKey }) => {
   return axios.get(
     `https://api.spoonacular.com/recipes/complexSearch${
       filters ? filters : "?"
-    }&diet=vegetarian&number=100&apiKey=${import.meta.env.VITE_KEY_2}`
+    }&diet=vegetarian&number=100&apiKey=${import.meta.env.VITE_KEY_3}`
   );
 };
 

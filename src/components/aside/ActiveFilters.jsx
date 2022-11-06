@@ -2,7 +2,7 @@ import { ActiveFilter } from "./ActiveFilter";
 
 import React from "react";
 
-import classes from "../../styles/ActiveFilters.module.css";
+import classes from "./styles/ActiveFilters.module.css";
 import { useContext } from "react";
 import { ActiveTagsContext } from "../context/activeTags-context";
 

@@ -4,7 +4,7 @@ import { RecipeIngredients } from "./recipeDetail/RecipeIngredients";
 import { RecipeIntro } from "./recipeDetail/RecipeIntro";
 import React from "react";
 
-import classes from "../../styles/RecipeDetail.module.css";
+import classes from "./styles/RecipeDetail.module.css";
 import { useParams } from "react-router-dom";
 import { RecipePreview } from "./RecipePreview";
 import { useQuery } from "react-query";

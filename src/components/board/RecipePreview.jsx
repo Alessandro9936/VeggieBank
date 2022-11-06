@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 
-import classes from "../../styles/RecipePreview.module.css";
+import classes from "./styles/RecipePreview.module.css";
 
 export function RecipePreview({ recipe }) {
   /*

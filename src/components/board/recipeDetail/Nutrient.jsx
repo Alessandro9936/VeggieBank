@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "../../../styles/Nutrient.module.css";
+import classes from "./styles/Nutrient.module.css";
 
 export function Nutrient(props) {
   return (

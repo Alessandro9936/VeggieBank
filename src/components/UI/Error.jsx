@@ -1,4 +1,4 @@
-import classes from "./Error.module.css";
+import classes from "./styles/Error.module.css";
 import { Link } from "react-router-dom";
 
 export const Error = ({ status }) => {

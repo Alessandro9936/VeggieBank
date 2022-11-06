@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 
 import React from "react";
 
-import classes from "../styles/Board.module.css";
+import classes from "./styles/Board.module.css";
 import { ActiveTagsProvider } from "../components/context/activeTags-context";
 
 export function Board() {

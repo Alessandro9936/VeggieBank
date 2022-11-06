@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import classes from "../../styles/NameSearch.module.css";
+import classes from "./styles/NameSearch.module.css";
 import { ActiveTagsDispatchContext } from "../context/activeTags-context";
 
 export function NameSearch({}) {

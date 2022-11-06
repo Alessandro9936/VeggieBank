@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import github from "../assets/github.png";
 
-import classes from "../styles/Header.module.css";
+import classes from "./styles/Header.module.css";
 
 export function Header() {
   return (

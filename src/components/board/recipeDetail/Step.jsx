@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "../../../styles/Step.module.css";
+import classes from "./styles/Step.module.css";
 
 export function Step({ number, step }) {
   return (

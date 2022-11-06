@@ -1,6 +1,6 @@
 import React from "react";
 import { Step } from "./Step";
-import classes from "../../../styles/RecipeSteps.module.css";
+import classes from "./styles/RecipeSteps.module.css";
 
 export function RecipeSteps({ url, instructions }) {
   if (instructions.length === 0) {

@@ -4,7 +4,7 @@ import { RecipeSpecs } from "./RecipeSpecs";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import { useState } from "react";
 
-import classes from "../../../styles/RecipeIngredients.module.css";
+import classes from "./styles/RecipeIngredients.module.css";
 
 export function RecipeIngredients({ baseServings, ingredients }) {
   const [servings, setServings] = useState(1);

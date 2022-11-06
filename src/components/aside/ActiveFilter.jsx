@@ -1,7 +1,7 @@
 import ActiveTag from "../UI/ActiveTag";
 import React from "react";
 
-import classes from "../../styles/ActiveFilter.module.css";
+import classes from "./styles/ActiveFilter.module.css";
 
 export function ActiveFilter({ type, activeFilters }) {
   if (activeFilters.length === 0) return;

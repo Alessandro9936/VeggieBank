@@ -5,7 +5,7 @@ import { NameSearch } from "./aside/NameSearch";
 import React from "react";
 import { useState } from "react";
 
-import classes from "../styles/Aside.module.css";
+import classes from "./styles/Aside.module.css";
 
 import { X } from "react-feather";
 import { Menu } from "react-feather";

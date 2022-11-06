@@ -1,7 +1,7 @@
 import React from "react";
 import { Option } from "./Option";
 
-import classes from "../../styles/Filter.module.css";
+import classes from "./styles/Filter.module.css";
 import { ChevronDown } from "react-feather";
 import { useMemo } from "react";
 import { useContext } from "react";

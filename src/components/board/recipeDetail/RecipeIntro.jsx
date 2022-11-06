@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../../../styles/RecipeIntro.module.css";
+import classes from "./styles/RecipeIntro.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { X } from "react-feather";
