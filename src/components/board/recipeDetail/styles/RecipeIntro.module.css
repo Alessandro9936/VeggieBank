@@ -5,6 +5,7 @@
 }
 
 .recipe-specifics {
+  min-width: 292px;
   position: relative;
   padding: var(--size16);
   padding-bottom: var(--size24);
@@ -25,7 +26,14 @@
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--size08);
   margin-top: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .order {
+    order: -1;
+  }
 }

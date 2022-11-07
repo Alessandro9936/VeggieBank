@@ -1,0 +1,10 @@
+.error-back {
+  width: fit-content;
+  text-decoration: none;
+  background-color: var(--strong-green);
+  color: white;
+  padding: var(--size08) var(--size16);
+  font-weight: bold;
+
+  border-radius: var(--border10);
+}

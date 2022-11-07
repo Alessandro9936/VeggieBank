@@ -13,7 +13,6 @@
   
   */
   --cream: #f0ead2;
-  --light-brown: #75a478;
   --strong-green: #75a478;
   --strong-brown: #6c584c;
   --text: #333333;
@@ -41,7 +40,6 @@ body {
   color: var(--text);
   width: 100vw;
   height: 100vh;
-  background-color: var(--light-brown);
 }
 
 #root {

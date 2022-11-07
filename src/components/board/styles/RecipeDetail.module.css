@@ -9,6 +9,12 @@
   padding-bottom: 5rem;
 }
 
+.error {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: var(--size24);
+}
+
 .recipe-block-flex {
   display: flex;
   gap: var(--size24);
@@ -38,7 +44,7 @@
   list-style: none;
 }
 
-.reccommended-recipes > div {
+.reccommended-recipes li {
   max-width: 300px;
 }
 
@@ -49,4 +55,12 @@
 .recipe-detail {
   -ms-overflow-style: none;
   scrollbar-width: none; /* Firefox */
+}
+
+@media screen and (max-width: 1024px) {
+  .recipe-detail,
+  .recipe-block-flex,
+  .recipe-block {
+    flex-direction: column;
+  }
 }
