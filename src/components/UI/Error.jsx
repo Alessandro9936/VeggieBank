@@ -1,5 +1,5 @@
+import { RedirectButton } from "./RedirectButton";
 import classes from "./styles/Error.module.css";
-import { Link } from "react-router-dom";
 
 export const Error = ({ status }) => {
   let errorMessage;
@@ -19,9 +19,7 @@ export const Error = ({ status }) => {
     <div className={classes.error}>
       <h2>{errorTitle}</h2>
       <p>{errorMessage}</p>
-      <Link to={".."} className={classes["error-back"]}>
-        Go back to recipes
-      </Link>
+      <RedirectButton />
     </div>
   );
 };
