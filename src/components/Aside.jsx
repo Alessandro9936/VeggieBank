@@ -10,6 +10,7 @@ import classes from "./styles/Aside.module.css";
 import { X } from "react-feather";
 import { Menu } from "react-feather";
 import { useParams } from "react-router-dom";
+import { ActiveTagsProvider } from "./context/activeTags-context";
 
 export function Aside() {
   /*
@@ -19,11 +20,6 @@ export function Aside() {
   const { id } = useParams();
 
   const [showAside, setShowAside] = useState(true);
-  const [disableModal, setDisableModal] = useState(false);
-
-  const handleDisableModal = () => {
-    setDisableModal(true);
-  };
 
   const asideClasses = classes[`board__aside-${showAside ? "open" : "close"}`];
 
@@ -32,38 +28,31 @@ export function Aside() {
   };
 
   return (
-    <aside className={asideClasses}>
-      {!showAside && (
-        <Menu
-          color="#333"
-          style={{ marginLeft: "auto", cursor: "pointer" }}
-          onClick={handleShowAside}
-        />
-      )}
-      {showAside && (
-        <>
-          <X
-            color="#333"
-            style={{ marginLeft: "auto", cursor: "pointer", zIndex: 1 }}
-            onClick={handleShowAside}
-          />
-          {id && (
-            <div
-              className={classes["disable-overlay"]}
-              onClick={handleDisableModal}
-            >
-              {disableModal && (
-                <div className={classes["disable-modal"]}>
-                  Close recipe detail to enable filters!
-                </div>
-              )}
-            </div>
+    <ActiveTagsProvider>
+      {!id && (
+        <aside className={asideClasses}>
+          {!showAside && (
+            <Menu
+              color="#333"
+              style={{ marginLeft: "auto", cursor: "pointer" }}
+              onClick={handleShowAside}
+            />
           )}
-          <NameSearch />
-          <Filters />
-          <ActiveFilters />
-        </>
+          {showAside && (
+            <>
+              <X
+                color="#333"
+                style={{ marginLeft: "auto", cursor: "pointer", zIndex: 1 }}
+                onClick={handleShowAside}
+              />
+
+              <NameSearch />
+              <Filters />
+              <ActiveFilters />
+            </>
+          )}
+        </aside>
       )}
-    </aside>
+    </ActiveTagsProvider>
   );
 }
