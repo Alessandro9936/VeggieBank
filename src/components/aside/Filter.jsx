@@ -3,7 +3,6 @@ import { Option } from "./Option";
 
 import classes from "./styles/Filter.module.css";
 import { ChevronDown } from "react-feather";
-import { useMemo } from "react";
 import { useContext } from "react";
 import { ActiveTagsContext } from "../context/activeTags-context";
 

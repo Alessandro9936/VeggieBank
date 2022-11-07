@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./styles/RecipeIntro.module.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { X } from "react-feather";
 
@@ -52,6 +52,7 @@ export function RecipeIntro({ recipe }) {
         style={{
           cursor: "pointer",
         }}
+        className={classes.order}
       />
     </>
   );
