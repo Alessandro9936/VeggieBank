@@ -16,7 +16,7 @@ const fetchRecipes = async ({ queryKey }) => {
   return axios.get(
     `https://api.spoonacular.com/recipes/complexSearch${
       filters ? filters : "?"
-    }&diet=vegetarian&number=100&apiKey=${import.meta.env.VITE_KEY_3}`
+    }&diet=vegetarian&number=100&apiKey=${import.meta.env.VITE_KEY_1}`
   );
 };
 
@@ -41,6 +41,9 @@ export function Recipes({}) {
       {data?.data.results.map((recipe) => (
         <RecipePreview recipe={recipe} key={recipe.id} />
       ))}
+      {data?.data.results.length === 0 && (
+        <p className={classes["no-recipe-message"]}>No recipes available!</p>
+      )}
     </ul>
   );
 }
