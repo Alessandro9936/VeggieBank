@@ -11,19 +11,20 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { Loader } from "../UI/Loader";
 import { Error } from "../UI/Error";
+import { RedirectButton } from "../UI/RedirectButton";
 
 const fetchRecipeDetail = ({ queryKey }) => {
   const id = queryKey[1];
 
   const recipeDetailRequest = axios.get(
     `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${
-      import.meta.env.VITE_KEY_2
+      import.meta.env.VITE_KEY_1
     }`
   );
 
   const similarRecipesRequest = axios.get(
-    `https://api.spoonacular.com/recipes/${id}/similar?number=10&apiKey=${
-      import.meta.env.VITE_KEY_2
+    `https://api.spoonacular.com/recipes/${id}/similar?number=3&apiKey=${
+      import.meta.env.VITE_KEY_1
     }`
   );
 
@@ -48,6 +49,18 @@ export function RecipeDetail() {
     return <Error status={error.response.status} />;
   }
 
+  if (!recipe?.vegetarian) {
+    return (
+      <>
+        <p className={classes.error}>
+          {recipe.title} is not a vegetarian recipe, please go back to other
+          recipes
+        </p>
+        <RedirectButton />
+      </>
+    );
+  }
+
   return (
     <>
       {recipe && (
@@ -70,16 +83,14 @@ export function RecipeDetail() {
             />
           </div>
 
-          {!error && (
-            <div className={classes.recommended}>
-              <h2>You may also like:</h2>
-              <ul className={classes["reccommended-recipes"]}>
-                {similarRecipes.map((recipe) => (
-                  <RecipePreview recipe={recipe} key={recipe.id} />
-                ))}
-              </ul>
-            </div>
-          )}
+          <div className={classes.recommended}>
+            <h2>You may also like:</h2>
+            <ul className={classes["reccommended-recipes"]}>
+              {similarRecipes.map((recipe) => (
+                <RecipePreview recipe={recipe} key={recipe.id} />
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </>
