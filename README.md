@@ -77,7 +77,7 @@ To run this project, you will need to add the following environment variables to
 
 [Get Spoonacular free API key](https://spoonacular.com/food-api/console#Dashboard)
 
-`API_KEY={your api key}`
+`VITE_KEY_1={your api key}`
 
 ## License
 MIT
