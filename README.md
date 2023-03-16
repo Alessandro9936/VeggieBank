@@ -1,4 +1,4 @@
-# S2I_React - Veggie Recipes
+# VeggieBank
 
 This is the final project for the renowned italian learning platform Start2Impact - ReactJS Section
 
