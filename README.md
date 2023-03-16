@@ -23,7 +23,7 @@ Try library app on this link --> https://s2i-react.web.app/
 
 ## About the app
 
-This application is designed for people who are looking for vegetarian recipes. It has thousands of recipes that can be filtered according to tastes, preferences and even intolerances. If a recipe preview catches you eyes try to click on it, you will get all the detail like ingredients, nutrients and steps of that specific recipe.
+VeggieBank is a website designed to meet the needs of vegetarians and anyone looking for delicious and nutritious dishes made from plant-based ingredients. Through this site, users are provided with a wide range of vegetarian recipes, filterable by name, dish type, cuisine, dietary restrictions, and much more, thanks to communication with Spoonacular's external API.
 
 ## Screenshots
 
